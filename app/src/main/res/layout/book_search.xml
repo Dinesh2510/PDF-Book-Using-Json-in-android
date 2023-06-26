@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/coordinator" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent">
+    <com.google.android.material.card.MaterialCardView android:id="@+id/search_bar" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="@dimen/spacing_xxxlarge" android:layout_margin="@dimen/spacing_mlarge" app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="50dp" app:cardElevation="1dp" app:cardUseCompatPadding="false" style="?attr/materialCardViewFilledStyle">
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent">
+            <ImageView android:padding="@dimen/spacing_large" android:layout_width="@dimen/spacing_xxxlarge" android:layout_height="@dimen/spacing_xxxlarge" app:srcCompat="@drawable/ic_search_vd_theme_24px" app:tint="@android:color/darker_gray"/>
+            <EditText android:id="@+id/et_search" android:background="@android:color/transparent" android:layout_width="0dp" android:layout_height="match_parent" android:hint="Search Book..." android:maxLines="1" android:singleLine="true" android:layout_weight="1" android:imeOptions="actionSearch">
+                <requestFocus/>
+            </EditText>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.progressindicator.CircularProgressIndicator android:layout_gravity="center" android:id="@+id/circular_indicator" android:layout_width="wrap_content" android:layout_height="wrap_content" android:indeterminate="true"/>
+    <RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:gravity="bottom" android:id="@+id/linear_ads" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@+id/adView">
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout android:id="@+id/swiperefreshlayout" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginTop="?attr/actionBarSize">
+                <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerView" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="match_parent" app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </LinearLayout>
+        <com.google.android.gms.ads.AdView android:id="@+id/adView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" app:adSize="SMART_BANNER" app:adUnitId="@string/admob_banner_id"/>
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

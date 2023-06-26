@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_recent">
+
+    <fragment
+        android:id="@+id/navigation_recent"
+        android:name="com.pixeldev.pdfbook.fragments.RecentFragment"
+        android:label="@string/title_recents"
+        tools:layout="@layout/fragment_recent" />
+
+    <fragment
+        android:id="@+id/navigation_category"
+        android:name="com.pixeldev.pdfbook.fragments.CategoryFragment"
+        android:label="@string/title_categories"
+        tools:layout="@layout/fragment_category" />
+
+    <fragment
+        android:id="@+id/navigation_featured"
+        android:name="com.pixeldev.pdfbook.fragments.FeaturedFragment"
+        android:label="@string/title_featured"
+        tools:layout="@layout/fragment_featured" />
+    <fragment
+        android:id="@+id/navigation_fav"
+        android:name="com.pixeldev.pdfbook.fragments.FavouriteFragment"
+        android:label="@string/title_fav"
+        tools:layout="@layout/fragment_favourite" />
+</navigation>

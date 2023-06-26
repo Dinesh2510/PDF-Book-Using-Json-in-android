@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/main_item"
+        android:title="Menu">
+        <menu>
+            <item
+                android:id="@+id/drawer_recent"
+                android:checkable="true"
+                android:icon="@drawable/ic_baseline_collections_bookmark_24"
+                android:title="@string/title_recents"
+                app:showAsAction="ifRoom" />
+            <item
+                android:id="@+id/drawer_rate"
+                android:checkable="true"
+                android:icon="@drawable/ic_baseline_rate_review_24"
+                android:title="@string/menu_rate"
+                app:showAsAction="ifRoom" />
+            <item
+                android:id="@+id/drawer_request_submit"
+                android:checkable="true"
+                android:icon="@drawable/ic_baseline_request_submit_24"
+                android:title="@string/menu_request_submit"
+                app:showAsAction="ifRoom" />
+            <item
+                android:id="@+id/drawer_share"
+                android:checkable="true"
+                android:icon="@drawable/ic_baseline_share_24"
+                android:title="@string/menu_share"
+                app:showAsAction="ifRoom" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/labels_item"
+        android:title="@string/menu_other">
+        <menu>
+            <item
+                android:id="@+id/drawer_about"
+                android:checkable="true"
+                android:icon="@drawable/ic_baseline_about_24"
+                android:title="@string/menu_about"
+                app:showAsAction="ifRoom" />
+            <item
+                android:id="@+id/drawer_setting"
+                android:checkable="true"
+                android:icon="@drawable/ic_baseline_settings_24"
+                android:title="@string/menu_setting"
+                app:showAsAction="ifRoom" />
+            <item
+                android:id="@+id/drawer_exit_app"
+                android:checkable="true"
+                android:icon="@drawable/ic_baseline_exit_to_app_24"
+                android:title="@string/menu_exit"
+                app:showAsAction="ifRoom" />
+        </menu>
+    </item>
+</menu>
