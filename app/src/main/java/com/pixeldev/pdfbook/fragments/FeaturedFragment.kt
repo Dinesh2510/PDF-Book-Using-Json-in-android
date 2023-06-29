@@ -8,10 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.pixeldev.pdfbook.Config
+import com.pixeldev.pdfbook.Config.URL
 import com.pixeldev.pdfbook.activity.MainActivity
 import com.pixeldev.pdfbook.adapter.BooksAdapter
 import com.pixeldev.pdfbook.databinding.FragmentFeaturedBinding
@@ -61,9 +63,8 @@ class FeaturedFragment : Fragment() {
 
     fun jsonRequest() {
         request = JsonObjectRequest(
-            0,
-            "https://pixeldev.in/app/books.json",
-            null as JSONObject?,
+            Request.Method.POST,
+            URL, null as JSONObject?,
             { response ->
                 try {
                     val jsonArray = response.getJSONArray("Books")

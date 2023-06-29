@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
@@ -27,6 +28,7 @@ import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.pixeldev.pdfbook.Config
+import com.pixeldev.pdfbook.Config.URL
 import com.pixeldev.pdfbook.R
 import com.pixeldev.pdfbook.adapter.CategoryBooksAdapter
 import com.pixeldev.pdfbook.model.Image
@@ -156,9 +158,8 @@ class BookSearch : AppCompatActivity() {
         lstAnime!!.clear()
         Handler().postDelayed({
             request = JsonObjectRequest(
-                0,
-                "https://pixeldev.in/app/books.json",
-                null as JSONObject?,
+                Request.Method.POST,
+                URL, null as JSONObject?,
                 { response ->
                     try {
                         val jsonArray = response!!.getJSONArray("Books")
@@ -170,7 +171,7 @@ class BookSearch : AppCompatActivity() {
                             image.book_name = book_item.optString("book_name")
                             image.book_url = book_item.optString("book_url")
                             image.book_description = book_item.optString("book_description")
-                            image.is_featured =(book_item.optBoolean("status"))
+                            image.is_featured = (book_item.optBoolean("status"))
                             image.category = book_item.getString("categories")
                             if (!book_item.getString("book_name").lowercase()
                                     .contains(et_search!!.text.toString().lowercase())

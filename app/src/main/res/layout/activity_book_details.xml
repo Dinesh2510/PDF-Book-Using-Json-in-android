@@ -84,7 +84,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginRight="80dp"
-                android:text="@string/extended_fab_label"
                 app:layout_anchor="@+id/app_bar"
                 app:layout_anchorGravity="bottom|end"
                 app:srcCompat="@drawable/ic_baseline_book_24" />

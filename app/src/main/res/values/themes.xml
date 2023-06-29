@@ -6,9 +6,6 @@
     <style name="NoActionBarTheme" parent="AppThemeNoAction">
 
     </style>
-    <style name="Theme.MyApplication.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="Theme.MyApplication.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="AppThemeAction" parent="Theme.Material3.DayNight">
         <item name="colorPrimary">@color/md_theme_light_primary</item>
@@ -65,17 +62,6 @@
         <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
-    </style>
-    <style name="AppThemeAction.AdAttribution">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_gravity">left</item>
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:textSize">12sp</item>
-        <item name="android:text">AD</item>
-        <item name="android:background">#FFCC66</item>
-        <item name="android:width">15dp</item>
-        <item name="android:height">15dp</item>
     </style>
 
 </resources>

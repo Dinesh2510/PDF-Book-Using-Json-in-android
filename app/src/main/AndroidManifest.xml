@@ -38,6 +38,8 @@
             android:exported="false" />
         <activity
             android:name=".activity.ActivitySettings"
+            android:parentActivityName=".activity.MainActivity"
+
             android:exported="false" />
         <activity
             android:name=".activity.PDFActivity"

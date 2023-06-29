@@ -10,14 +10,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:layout_collapseMode="pin"
-            app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
-            app:title="@string/settings" />
-
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -60,17 +52,8 @@
                             android:layout_marginTop="3dp"
                             android:text="@string/light_theme" />
                     </LinearLayout>
-
-                    <Switch
-                        android:id="@+id/switch_theme"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:visibility="gone" />
                 </RelativeLayout>
 
-                <include layout="@layout/include_row_separator" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -79,7 +62,7 @@
                     android:focusable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="@dimen/spacing_large">
+                    android:padding="@dimen/spacing_middle">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -100,6 +83,7 @@
                             android:id="@+id/txt_cache_size"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:text="0 kb"
                             android:layout_marginTop="3dp" />
                     </LinearLayout>
 
@@ -152,19 +136,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingTop="@dimen/spacing_middle">
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/spacing_large"
-                        android:layout_marginLeft="@dimen/spacing_large"
-                        android:layout_marginTop="@dimen/spacing_large"
-                        android:layout_marginBottom="@dimen/spacing_middle"
-                        android:text="@string/more"
-                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
-                        android:textStyle="bold" />
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:id="@+id/btn_ask"
@@ -181,7 +153,7 @@
                         <com.google.android.material.textview.MaterialTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/ask_qn" />
+                            android:text="@string/contact_us" />
                     </LinearLayout>
 
                     <LinearLayout

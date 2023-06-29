@@ -48,9 +48,7 @@ class ActivitySettings : AppCompatActivity() {
         txt_cache_size = findViewById<View>(R.id.txt_cache_size) as MaterialTextView
         theme_text_mode = findViewById<View>(R.id.theme_text_mode) as MaterialTextView
         initializeCache()
-        val materialToolbar2 = findViewById<View>(R.id.toolbar) as MaterialToolbar
-        materialToolbar = materialToolbar2
-        materialToolbar2.setNavigationOnClickListener { onBackPressed() }
+
         val imageView = findViewById<View>(R.id.btn_clear_cache) as ImageView
         btn_clear_cache = imageView
         imageView.setOnClickListener { clearCache() }
@@ -137,7 +135,7 @@ class ActivitySettings : AppCompatActivity() {
     fun clearCache() {
         val dialog = MaterialAlertDialogBuilder(this)
         dialog.setMessage(R.string.msg_clear_cache)
-        dialog.setPositiveButton(R.string.option_yes) { dialogInterface, i ->
+        dialog.setPositiveButton(R.string.yes) { dialogInterface, i ->
             clearCacheNow(
                 dialogInterface,
                 i

@@ -9,8 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.pixeldev.pdfbook.Config.URL
 import com.pixeldev.pdfbook.activity.MainActivity
 import com.pixeldev.pdfbook.adapter.BooksAdapter
 import com.pixeldev.pdfbook.databinding.FragmentRecentBinding
@@ -45,8 +47,12 @@ class RecentFragment : Fragment() {
         //binding.toolbar.setNavigationOnClickListener(v -> ((MainActivity) getActivity()).openDrawer());
         lstAnime = ArrayList<Image?>()
         binding!!.swiperefreshlayout.setOnRefreshListener {
-            val recentFragment = this@RecentFragment
-            recentFragment.initComponent(recentFragment.lstAnime)
+           try {
+               val recentFragment = this@RecentFragment
+               recentFragment.initComponent(recentFragment.lstAnime)
+           }catch (e:Exception){
+
+           }
             CoroutineScope(Dispatchers.Main).launch {
                 jsonRequest()
             }
@@ -56,54 +62,13 @@ class RecentFragment : Fragment() {
         CoroutineScope(Dispatchers.Main).launch {
             jsonRequest()
         }
-
-        //        binding.imgSearch.setOnClickListener(v -> startActivity(new Intent(getActivity(), BookSearch.class)));
-//        binding.imgVert.setOnClickListener(v -> {
-//            PopupMenu popup = new PopupMenu(getActivity(), binding.imgVert);
-//            popup.getMenuInflater().inflate(R.menu.menu_toolbar, popup.getMenu());
-//            popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-//                public boolean onMenuItemClick(MenuItem item) {
-//                    if (item.getItemId() == R.id.menu_top_setting) {
-//                        startActivity(new Intent(getActivity(), ActivitySettings.class));
-//                        return true;
-//                    } else if (item.getItemId() == R.id.menu_top_rate) {
-//                        try {
-//                            RecentFragment recentFragment = RecentFragment.this;
-//                            recentFragment.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getActivity().getPackageName())));
-//                            return true;
-//                        } catch (ActivityNotFoundException e) {
-//                            RecentFragment recentFragment2 = RecentFragment.this;
-//                            recentFragment2.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + getActivity().getPackageName())));
-//                            return true;
-//                        }
-//                    } else if (item.getItemId() == R.id.menu_top_moreapps) {
-//                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.more_apps))));
-//                        return true;
-//                    } else if (item.getItemId() == R.id.menu_top_share) {
-//                        Intent intent = new Intent();
-//                        intent.setAction( Intent.ACTION_SEND);
-//                        intent.putExtra("android.intent.extra.SUBJECT", getString(R.string.app_name));
-//                        intent.putExtra(  Intent.EXTRA_TEXT, getString(R.string.share_text) + "\nhttps://play.google.com/store/apps/details?id=" + getActivity().getPackageName());
-//                        intent.setType("text/plain");
-//                        startActivity(intent);
-//                        return true;
-//                    } else if (item.getItemId() != R.id.menu_top_about) {
-//                        return true;
-//                    } else {
-//                        mainActivity.showDialogAbout();
-//                        return true;
-//                    }
-//                }
-//            });
-//            popup.show();
-//        });
         return view
     }
 
     fun jsonRequest() {
         request = JsonObjectRequest(
-            0,
-            "https://pixeldev.in/app/books.json",
+            Request.Method.POST,
+            URL,
             null as JSONObject?,
             { response ->
                 try {
@@ -131,8 +96,12 @@ class RecentFragment : Fragment() {
                     e.printStackTrace()
                     binding!!.circularIndicator.visibility = View.VISIBLE
                 }
-                val recentFragment = this@RecentFragment
-                recentFragment.initComponent(recentFragment.lstAnime)
+                try {
+                    val recentFragment = this@RecentFragment
+                    recentFragment.initComponent(recentFragment.lstAnime)
+                }catch (e:Exception){
+
+                }
             }) { error ->
             Log.e("VOLLEY_ERROR", "onErrorResponse: $error")
             binding!!.circularIndicator.visibility = View.GONE

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
@@ -59,7 +60,7 @@ class CategoryFragment : Fragment() {
     }
 
     fun jsonRequest() {
-        request = JsonObjectRequest(0, Config.URL, null as JSONObject?, { response ->
+        request = JsonObjectRequest(Request.Method.POST, Config.URL, null as JSONObject?, { response ->
             try {
                 val jsonArray = response.getJSONArray("Books")
                 for (i in 0 until jsonArray.length()) {
